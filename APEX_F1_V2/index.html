@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APEX — The F1 Intelligence Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0">
+<defs>
+<linearGradient id="metal" x1="0" x2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#777"/><stop offset="1" stop-color="#eee"/></linearGradient>
+</defs>
+</svg>
+
+<header class="nav">
+  <a class="logo" href="#home"><span>APEX</span><i>F1</i></a>
+  <nav id="teamNav"></nav>
+  <div class="nav-actions">
+    <button id="searchOpen" aria-label="Search">⌕</button>
+    <a href="#merch" class="merch-tab">MERCH</a>
+  </div>
+</header>
+
+<div id="searchPanel" class="search-panel">
+  <div class="search-inner">
+    <button id="searchClose">×</button>
+    <label>SEARCH THE F1 WORLD</label>
+    <input id="searchInput" placeholder="Try Ferrari, Hamilton, Monaco, Verstappen..." autocomplete="off">
+    <div id="searchResults"></div>
+  </div>
+</div>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-copy">
+    <div class="kicker">FORMULA 1 / 2026</div>
+    <h1>THE ART<br>OF <span>SPEED.</span></h1>
+    <p>A premium fan-built F1 hub for the teams, drivers, machines and moments that define Formula 1.</p>
+    <div class="hero-meta"><b>11</b><span>TEAMS</span><b>22</b><span>DRIVERS</span><b>1</b><span>PASSION</span></div>
+  </div>
+  <div class="hero-drivers">
+    <div class="portrait-card portrait-ollie"><div class="helmet">87</div><small>HAAS</small><strong>OLIVER<br>BEARMAN</strong></div>
+    <div class="portrait-card portrait-lewis"><div class="helmet">44</div><small>FERRARI</small><strong>LEWIS<br>HAMILTON</strong></div>
+    <div class="portrait-card portrait-bottas"><div class="helmet">77</div><small>CADILLAC</small><strong>VALTTERI<br>BOTTAS</strong></div>
+  </div>
+  <a class="scroll" href="#highlights">SCROLL TO EXPLORE ↓</a>
+</section>
+
+<section id="highlights" class="block highlights">
+  <div class="section-top"><div><div class="kicker">LATEST RACE</div><h2>RACE HIGHLIGHTS</h2></div><span>04 OCT 2026 / SEPANG</span></div>
+  <div class="video-card">
+    <div class="video-frame"><iframe src="https://www.youtube.com/embed?listType=search&list=Formula%201%202026%20Bahrain%20Grand%20Prix%20Malaysia%20highlights" title="Latest Formula 1 race highlights" allowfullscreen></iframe></div>
+    <div class="video-info"><div><b>BAHRAIN GRAND PRIX IN MALAYSIA</b><span>Latest official F1 race highlights</span></div><a href="https://www.formula1.com/en/video/race-highlights-2026-bahrain-grand-prix-in-malaysia.1878118714727462605" target="_blank">OPEN F1 VIDEO →</a></div>
+  </div>
+</section>
+
+<section class="block first-cars">
+  <div class="section-top"><div><div class="kicker">WHERE IT STARTED</div><h2>THE FIRST F1 CAR<br>FROM EVERY TEAM</h2></div><p>Explore the machines that began each team's Formula 1 story. Every card is a built-in vector illustration, so the car artwork stays visible even when the site is opened offline.</p></div>
+  <div id="carGrid" class="car-grid"></div>
+</section>
+
+<section id="merch" class="block merch-section">
+  <div class="section-top"><div><div class="kicker">FAN GEAR</div><h2>F1 MERCH</h2></div><p>Official-style team shopping shortcuts. Each button opens an Amazon search for that team's merchandise.</p></div>
+  <div id="merchGrid" class="merch-grid"></div>
+</section>
+</main>
+
+<section id="teamPage" class="team-page" hidden>
+  <div class="team-hero">
+    <div><div class="kicker" id="teamKicker"></div><h2 id="teamName"></h2><p id="teamIntro"></p></div>
+    <div class="team-number" id="teamNumber"></div>
+  </div>
+  <div class="team-content">
+    <div class="drivers-section">
+      <div class="section-label">THE GARAGE</div><h3>2026 DRIVERS</h3>
+      <div id="driverCards" class="driver-cards"></div>
+      <div class="reserve"><span>RESERVE DRIVER</span><b id="reserveName"></b></div>
+    </div>
+    <div class="car-feature">
+      <div class="section-label">THE MACHINE</div><h3 id="carName"></h3>
+      <div id="teamCar" class="big-car"></div>
+    </div>
+    <div class="team-video">
+      <div class="section-label">BEST RESULT</div><h3 id="bestResult"></h3>
+      <div class="video-placeholder">
+        <div class="play">▶</div>
+        <p>Watch the team result</p>
+        <a id="bestVideo" target="_blank">OPEN VIDEO →</a>
+      </div>
+    </div>
+    <div class="team-history">
+      <div class="section-label">THE DNA</div><h3>TEAM HISTORY</h3><p id="teamHistory"></p>
+    </div>
+  </div>
+</section>
+
+<footer><b>APEX F1</b><span>Fan-made project • Formula 1 and team names/logos belong to their respective owners.</span></footer>
+<script src="script.js"></script>
+</body>
+</html>
