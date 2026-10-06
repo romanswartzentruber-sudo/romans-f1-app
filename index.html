@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roman's F1 App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="#" id="homeBtn">ROMAN'S <em>F1</em></a>
+  <nav class="tabs" aria-label="Formula 1 teams">
+    <button data-team="ferrari">FERRARI</button>
+    <button data-team="mercedes">MERCEDES</button>
+    <button data-team="mclaren">McLAREN</button>
+    <button data-team="redbull">RED BULL</button>
+    <button data-team="racingbulls">RACING BULLS</button>
+    <button data-team="aston">ASTON MARTIN</button>
+    <button data-team="haas">HAAS</button>
+    <button data-team="audi">AUDI</button>
+    <button data-team="alpine">ALPINE</button>
+    <button data-team="williams">WILLIAMS</button>
+    <button data-team="cadillac">CADILLAC</button>
+  </nav>
+  <div class="actions">
+    <button id="searchBtn">SEARCH</button>
+    <a href="#merch" id="merchBtn">MERCH</a>
+  </div>
+</header>
+
+<div id="searchOverlay" class="search-overlay">
+  <button id="closeSearch">×</button>
+  <div class="search-box">
+    <div class="label">SEARCH APEX F1</div>
+    <input id="searchInput" placeholder="Search teams, drivers, cars..." autofocus>
+    <div id="searchResults"></div>
+  </div>
+</div>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-copy">
+    <div class="label">THE FORMULA 1 HUB / 2026</div>
+    <h1>PURE<br><span>F1.</span></h1>
+    <p>Teams. Drivers. Cars. History. Race highlights. Built into one professional F1 experience.</p>
+    <div class="stats"><b>11</b><small>TEAMS</small><b>22</b><small>DRIVERS</small><b>24</b><small>GRANDS PRIX</small></div>
+  </div>
+  <div class="hero-drivers">
+    <article><img src="https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/haas/olibea01/2026haasolibea01right.webp" alt="Oliver Bearman" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"><div class="number">87</div><div class="driver-team">HAAS</div><h2>OLIVER<br>BEARMAN</h2></article>
+    <article><img src="https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/ferrari/lewham01/2026ferrarilewham01right.webp" alt="Lewis Hamilton" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"><div class="number">44</div><div class="driver-team">FERRARI</div><h2>LEWIS<br>HAMILTON</h2></article>
+    <article><img src="https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/cadillac/valbot01/2026cadillacvalbot01right.webp" alt="Valtteri Bottas" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"><div class="number">77</div><div class="driver-team">CADILLAC</div><h2>VALTTERI<br>BOTTAS</h2></article>
+  </div>
+  <a class="scroll" href="#highlights">SCROLL TO EXPLORE ↓</a>
+</section>
+
+<section id="highlights" class="section">
+  <div class="section-head"><div><div class="label">LATEST RACE</div><h2>RACE HIGHLIGHTS</h2></div><div class="date">2026 / BAHRAIN GP IN MALAYSIA</div></div>
+  <div class="video">
+    <div class="video-thumb"><div class="yt">▶</div><div><b>OFFICIAL F1 HIGHLIGHTS</b><span>Latest completed Grand Prix</span></div></div>
+    <div class="video-bottom"><span>The latest official highlight is available from Formula1.com.</span><a href="https://www.formula1.com/en/video/race-highlights-2026-bahrain-grand-prix-in-malaysia.1878118714727462605" target="_blank">WATCH RACE HIGHLIGHTS →</a></div>
+  </div>
+</section>
+
+<section class="section first">
+  <div class="section-head"><div><div class="label">2026 CONSTRUCTORS</div><h2>TEAM STATS</h2></div><p>Current 2026 standings, points, wins, podiums, chassis and power units. Stats are based on the latest official F1 standings.</p></div>
+  <div id="teamStats" class="team-stats-grid"></div>
+</section>
+
+<section id="merch" class="section merch">
+  <div class="section-head"><div><div class="label">THE GARAGE STORE</div><h2>TEAM MERCH</h2></div><p>Choose a team and open its Amazon search.</p></div>
+  <div id="merchGrid" class="merch-grid"></div>
+</section>
+</main>
+
+<section id="teamPage" hidden>
+  <div class="team-banner">
+    <div><div class="label" id="teamLabel"></div><h2 id="teamTitle"></h2><p id="teamBio"></p></div>
+    <div class="team-id" id="teamId"></div>
+  </div>
+  <div class="team-layout">
+    <section class="panel drivers">
+      <div class="label">THE GARAGE</div><h3>2026 DRIVERS</h3>
+      <div id="driverList"></div>
+      <div class="reserve"><span>RESERVE DRIVER</span><b id="reserve"></b></div>
+    </section>
+    <section class="panel car">
+      <div class="label">THE MACHINE</div><h3 id="currentCar"></h3>
+      <div id="bigCar"></div>
+      <div class="car-specs"><div><span>POWER UNIT</span><b id="carPower"></b></div><div><span>CHAMPIONSHIP</span><b id="carPosition"></b></div><div><span>POINTS</span><b id="carPoints"></b></div><div><span>WINS</span><b id="carWins"></b></div><div><span>PODIUMS</span><b id="carPodiums"></b></div></div>
+    </section>
+    <section class="panel result">
+      <div class="label">TEAM MOMENT</div><h3 id="resultTitle"></h3>
+      <div class="result-box"><div class="play">▶</div><p>Watch a team highlight</p><a id="resultLink" target="_blank">OPEN VIDEO →</a></div>
+    </section>
+    <section class="panel history">
+      <div class="label">HISTORY</div><h3>THE STORY</h3>
+      <p id="historyText"></p>
+    </section>
+    <section class="panel shop">
+      <div><div class="label">TEAM STORE</div><h3>REP YOUR TEAM.</h3><p>Find team and driver merchandise.</p></div>
+      <a id="shopLink" target="_blank">SHOP ON AMAZON →</a>
+    </section>
+  </div>
+</section>
+
+<footer><b>ROMAN'S F1 APP</b><span>Fan-made F1 concept. 2026 team and driver information checked against official Formula1.com pages.</span></footer>
+<script src="script.js"></script>
+</body>
+</html>
